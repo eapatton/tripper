@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 from django.shortcuts import render
 from .models import City, Thing, Trip
+=======
+from django.shortcuts import render, redirect
+from .models import City, Thing, Trip
+
+>>>>>>> submaster
 # Create your views here.
 # Add the following import
 
@@ -9,12 +15,6 @@ def home(request):
 
 def about(request):
     return render(request, 'about.html')  
-
-
-
-
-
-
 
 
 
@@ -68,9 +68,6 @@ def trip_details(request, trip_id):
 
 
 
-
-
-
 ##------------------------ MERT AREA -------------------- (LINE 71)##
 
 
@@ -79,7 +76,10 @@ def city_index(request):
   city = City.objects.all()
   return render(request, 'cities/index.html' , {'cities': city})
 
-
+def city_detail(request,city_id):
+  city = City.objects.get(id=city_id)
+  trip = Trip.objects.first().city.get(id=city_id).thing_set.all()
+  return render(request,'cities/detail.html',{"city" : city, "trips" :trip,})
 
 
 

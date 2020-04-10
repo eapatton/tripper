@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 ></h1>
+
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div style="text-align:center;" class="card-content">
+        <img style="margin-top:8px;" src = "{{city.image}}" width="600" height="200">
+        <p style="margin-top:5px; color:black; font-size:25px;">Welcome to {{ city.name }}</p> 
+        <p>{{ city.description }}</p>
+        
+       
+      </div>
+
+     
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="row">
+  <div class="col s6">
+    <h3 style="text-align:center;">{{ city.name }}'s Things to Do</h3> 
+
+      {% for thing in city.thing_set.all %}
+        <div class="card" style="margin-top: 5px">
+          <div style="padding:0; text-align:center;" class="card-content">
+            <p> {{thing.description}}</p>
+            <p> Address: {{thing.address}}</p>
+            <p> Hours: {{thing.hours}}</p>
+            <p> Cost: ${{thing.cost}}</p>
+            <form action="" method="post">
+              {% csrf_token %}
+              <button type="button" class="btn btn-info" style="margin-bottom:5px;">Add Your Trip</button>
+            </form>
+          </div>
+             
+        </div>
+     {% endfor %}
+  </div>
+  
+  <div class="col s6">
+    <h3 style="text-align:center;">Your Trip</h3>
+    {% for thing in trips %}
+        <div class="card" style="margin-top: 5px">
+          <div style="padding:0; text-align:center;" class="card-content">
+            <p> {{thing.description}}</p>
+            <p> Address: {{thing.address}}</p>
+            <p> Hours: {{thing.hours}}</p>
+            <p> Cost: ${{thing.cost}}</p>
+           
+          </div>
+             
+        </div>
+    {% endfor %}
+
+    
+  </div>
+
+</div>
+{% endblock %}

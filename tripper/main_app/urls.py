@@ -23,7 +23,8 @@ urlpatterns = [
 
 
     # Mert"s Path
-    path('cities/', views.city_index, name='index'),
+    path('cities/', views.city_index, name='destination'),
+    path('cities/<int:city_id>/', views.city_detail, name="detail"),
 
 
 

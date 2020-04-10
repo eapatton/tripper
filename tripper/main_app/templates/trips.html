@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content%}
+
+<h1> These are your trips! </h1>	
+
+	{% for trip in trips %}
+	<div class="card">
+	 <!--  <a href="/cryptids/{{cryptid.id}}">  add this back in if we make a detail page-->
+
+	  <div class="card-content">
+	    <span class="card-title">{{ trip.city.name}}</span>
+	    <p>Description: {{ trip.description }}</p>
+	    <p>Date: {{trip.date}}</p>
+	    <p>Budget: {{ trip.budget}}</p>
+	  </div>
+	</a>
+	</div>
+	{% endfor %}
+
+{% endblock %}

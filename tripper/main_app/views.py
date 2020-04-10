@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import City, Thing, Trip
 # Create your views here.
 # Add the following import
 
@@ -20,17 +20,15 @@ def about(request):
 
 
 
+##----------------- MELODY AREA ------------------ (line 23)###
+def trips(request):
+	trips = Trip.objects.all()
+	return render(request, 'trips.html' , {'trips': trips} )
 
-  ##----------------- MELODY AREA ------------------ (line 23)###
-
-
-
-
-
-
-
-
-
+def trip_details(request, trip_id):
+	trip = Trip.objects.get(id=trip_id)
+	#ttd = Trip.objects.things_to_do.all()
+	return render(request, 'trip_details.html', {'trip': trip})
 
 
 
@@ -69,7 +67,11 @@ def about(request):
 
 
 
-  ##------------------------ MERT AREA -------------------- (LINE 71)##
+
+
+
+
+##------------------------ MERT AREA -------------------- (LINE 71)##
 
 
 

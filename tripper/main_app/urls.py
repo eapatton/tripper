@@ -14,8 +14,8 @@ urlpatterns = [
 
 
     #Melody
-
-
+    path('trips/', views.trips, name='trips'),
+    path('trips/<int:trip_id>/', views.trip_details, name='tripdetails'),
 
 
 

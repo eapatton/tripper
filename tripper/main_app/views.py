@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import City, Thing, Trip
 
 # Create your views here.
 # Add the following import
@@ -9,8 +10,6 @@ def home(request):
 
 def about(request):
     return render(request, 'about.html')  
-
-
 
 
 

@@ -1,0 +1,36 @@
+[{
+    "model": "main_app.city",
+    "pk": 1,
+    "fields": {
+      "name": "Istanbul",
+      "description": "Istanbul served as an imperial capital for almost 16 centuries, during the Roman, Byzantine and Ottoman empires."
+    }
+  },
+  {
+    "model": "main_app.city",
+    "pk": 2,
+    "fields": {
+      "name": "Berlin",
+      "description": "Berlin is a world city of culture, politics, media and science."
+    }
+  },
+  {
+    "model": "main_app.city",
+    "pk": 3,
+    "fields": {
+      "name": "San Fransisco",
+      "description": "A popular tourist destination, San Francisco is known for its cool summers, fog, steep rolling hills, eclectic mix of architecture, and landmarks."
+    }
+  }, 
+  {
+    "model": "main_app.thing",
+    "pk": 1,
+    "fields": {
+      "address": "Sultan Ahmet, Atmeydanı Cd. No:7, 34122 Fatih/İstanbul, Turkey",
+      "description": "Sultan Ahmed Mosque, also known as the Blue Mosque, is a historic mosque located in Istanbul, Turkey. ", 
+      "cost": 0, 
+      "hours": "Closes for prayers 5 times a day; open all other times.", 
+      "city": 1
+    }
+  }
+]

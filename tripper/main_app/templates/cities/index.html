@@ -5,7 +5,7 @@
 <h1 style="text-align:center">Choose Your Destination</h1>
 
 {% for city in cities %}
-  <div class="card" style="text-align:center" >
+<div class="card" style="text-align:center" >
 
     <a href="{% url 'detail' city.id %}">
 
@@ -20,7 +20,10 @@
 
     </a>
 
-  </div>
+</div>
+
+
+
 {% endfor %}
 
 {% endblock %}

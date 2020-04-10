@@ -78,7 +78,8 @@ def city_index(request):
 
 def city_detail(request,city_id):
   city = City.objects.get(id=city_id)
-  return render(request,'cities/detail.html',{"city" : city})
+  trip = Trip.objects.first().city.get(id=city_id).thing_set.all()
+  return render(request,'cities/detail.html',{"city" : city, "trips" :trip,})
 
 
 

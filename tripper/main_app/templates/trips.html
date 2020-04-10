@@ -4,20 +4,21 @@
 <h1> These are your trips! </h1>	
 
 	{% for trip in trips %}
-	<div class="card">
+	<div class="card mt-3">
 	 <!--  <a href="/cryptids/{{cryptid.id}}">  add this back in if we make a detail page-->
 
 	  <div class="card-content">
-	    <span class="card-title">{{ trip.city.name}}</span>
+	    <span class="card-title"> Trip {{ trip.pk }}</span>
 	    <p>Description: {{ trip.description }}</p>
 	    <p>Date: {{trip.date}}</p>
 	    <p>Budget: {{ trip.budget}}</p>
+	    <a href="#" class="card-link">More Info</a>
 	  </div>
 	</a>
 	</div>
 	{% endfor %}
 
-	<div class="row">
+	<div class="row mt-5">
 		<div class="col s12">
 			<div class="card">
 				<span class="card-title"> Want to add a trip?</span>

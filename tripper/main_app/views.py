@@ -35,7 +35,7 @@ def trips(request):
 
 def trip_details(request, trip_id):
 	trip = Trip.objects.get(id=trip_id)
-	things = trip.objects.events_set.all()
+	things = Trip.objects.get(id=trip_id).events.all()
 	return render(request, 'trip_details.html', {'trip': trip, 'things': things})
 
 

@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
 
 
 
@@ -22,4 +23,5 @@ urlpatterns = [
 
     # Mert"s Path
     path('cities/', views.city_index, name='index'),
+    
 ]

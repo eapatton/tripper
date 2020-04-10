@@ -1,0 +1,11 @@
+[{
+  "model": "main_app.trip",
+  "pk": 1,
+  "fields": {
+    "date": "2018-06-06",
+    "description": "I'm going to Istanbul for fun with my family.", 
+    "budget": 1000, 
+    "city": [1], 
+    "things_to_do": [1, 2]
+  }
+}]

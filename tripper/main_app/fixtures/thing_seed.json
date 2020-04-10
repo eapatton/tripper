@@ -1,0 +1,44 @@
+[{
+  "model": "main_app.thing",
+  "pk": 1,
+  "fields": {
+    "address": "Sultan Ahmet, Atmeydanı Cd. No:7, 34122 Fatih/İstanbul, Turkey",
+    "description": "Sultan Ahmed Mosque, also known as the Blue Mosque, is a historic mosque located in Istanbul, Turkey. ", 
+    "cost": 0, 
+    "hours": "Closes for prayers 5 times a day; open all other times.", 
+    "city": 1
+  }
+},
+{
+  "model": "main_app.thing",
+  "pk": 4,
+  "fields": {
+    "address": "Sultan Ahmet, Ayasofya Meydanı No:1, 34122 Fatih/İstanbul, Turkey",
+    "description": "The Hagia Sophia, which was the largest building in the world when it was built, is considered the epitome of Byzantine architecture.", 
+    "cost": 11, 
+    "hours": "9:00 to 7:00 during the summer, 9:00 to 6:00 during the winter.", 
+    "city": 1
+  }
+},
+{
+  "model": "main_app.thing",
+  "pk": 2,
+  "fields": {
+    "address": "Pariser Platz, 10117 Berlin, Germany",
+    "description": "The Brandenburg Gate was often a site for major historical events and is today considered a symbol of the tumultuous history of Germany.", 
+    "cost": 0, 
+    "hours": "Open all day.", 
+    "city": 2
+  }
+},
+{
+  "model": "main_app.thing",
+  "pk": 3,
+  "fields": {
+    "address": "San Francisco, CA 94133",
+    "description": "The notorious island of Alcatraz served as a prison for many high profile prisoners for years.", 
+    "cost": 40, 
+    "hours": "Boats depart for Alcatraz every half an hour starting at 8:30 and running until 4:00.", 
+    "city": 3
+  }
+}]

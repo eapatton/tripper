@@ -5,15 +5,16 @@
 <h1 style="text-align:center">Choose Your Destination</h1>
 
 {% for city in cities %}
-  <div class="card" >
+  <div class="card" style="text-align:center" >
 
     <a href="{% url 'detail' city.id %}">
 
       <div class="card-content">
-        <span class="card-title">{{ city.name }}</span>
+      <img style="margin-top:8px;" src = "{{city.image}}" width="600" height="200">
+        <p style="margin-top:5px;">{{ city.name }}</p>
        
-        <p>Description: {{ city.description }}</p>
-         <img src = "{{city.image}}" width="200" height="200">
+        <p>{{ city.description }}</p>
+        
        
       </div>
 

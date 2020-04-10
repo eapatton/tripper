@@ -72,6 +72,9 @@ def home(request):
 
 
 
+def city_index(request):
+  city = City.objects.all()
+  return render(request, 'cities/index.html' , {'cities': city})
 
 
 

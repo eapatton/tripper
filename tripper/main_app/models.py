@@ -3,9 +3,15 @@ from django.db import models
 # Create your models here.
 
 class City(models.Model):
-    image = models.CharField(max_length= 500)
+    image = models.URLField(default="https://globalcenters.columbia.edu/sites/default/files/styles/cu_crop/public/content/istanbul/visiting%20city/istanbul%20002.jpg?h=eba642ff&itok=rOu6u0xq  `")
     name = models.CharField(max_length= 100)
     description = models.TextField(max_length= 250)
+   
+    def __str__(self):
+        return self.name
+    
+
+
 
 class Thing(models.Model):
     address = models.TextField(max_length= 250)

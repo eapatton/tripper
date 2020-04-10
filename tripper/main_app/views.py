@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-from django.shortcuts import render
-from .models import City, Thing, Trip
-=======
 from django.shortcuts import render, redirect
 from .models import City, Thing, Trip
-
->>>>>>> submaster
 # Create your views here.
 # Add the following import
 
@@ -20,15 +14,29 @@ def about(request):
 
 
 
+
+
+
+
+from . forms import TripForm
 ##----------------- MELODY AREA ------------------ (line 23)###
 def trips(request):
 	trips = Trip.objects.all()
-	return render(request, 'trips.html' , {'trips': trips} )
+
+	if request.method == 'POST':
+		form = TripForm(request.POST)
+		if form.is_valid():
+			new_Trip = form.save()
+			return redirect('trips')
+	else:
+		form = TripForm
+	context = {'form': form, 'trips': trips}
+	return render(request, 'trips.html', context)
 
 def trip_details(request, trip_id):
 	trip = Trip.objects.get(id=trip_id)
-	#ttd = Trip.objects.things_to_do.all()
-	return render(request, 'trip_details.html', {'trip': trip})
+	things = trip.objects.events_set.all()
+	return render(request, 'trip_details.html', {'trip': trip, 'things': things})
 
 
 

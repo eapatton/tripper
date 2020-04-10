@@ -10,9 +10,6 @@ class City(models.Model):
     def __str__(self):
         return self.name
     
-
-
-
 class Thing(models.Model):
     address = models.TextField(max_length= 250)
     description = models.TextField(max_length= 250)
@@ -25,4 +22,4 @@ class Trip(models.Model):
     description = models.TextField(max_length= 250)
     budget = models.IntegerField()
     city = models.ManyToManyField(City)
-    things_to_do = models.ManyToManyField(Thing)
+    events = models.ManyToManyField(Thing)

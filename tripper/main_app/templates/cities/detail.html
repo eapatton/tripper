@@ -25,7 +25,7 @@
     <h3 style="text-align:center;">{{ city.name }}'s Things to Do</h3> 
 
       {% for thing in city.thing_set.all %}
-        <div class="card" style="margin-top: 5px">
+        <div class="card flex-grow-1" style="margin-top: 5px">
           <div style="padding:0; text-align:center;" class="card-content">
             <p> {{thing.description}}</p>
             <p> Address: {{thing.address}}</p>

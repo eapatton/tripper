@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+{% load static %}
 <h1>About the Tripper</h1>
 <hr />
 <p>Tripper!</p>
@@ -8,12 +8,15 @@
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="https://picsum.photos/200/300" class="card-img" alt="...">
+      
+    <img class="card-img-top my-3" src="{% static "images/melody.jpeg" %}" alt="Melody's Profile">
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title">Melody Cerritos</h5>
+        <p class="card-text">Melody is a historical analyst turned software engineer who enjoys working in javascript and python. She still has some nostalgia for the PS2.</p>
+        <a href="https://www.linkedin.com/in/melody-cerritos/" class="btn btn-outline-info">LinkedIn</a>
+        <a href="https://github.com/mcerritos" class="btn btn-outline-info">GitHub</a>
       </div>
     </div>
   </div>
@@ -22,12 +25,14 @@
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="https://picsum.photos/200/300" class="card-img" alt="...">
+      <img class="card-img-top my-3" src="{% static "images/mert.jpeg" %}" alt="Mert's Profile">
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title">Mert Nacakgedigi</h5>
+        <p class="card-text">With a knack for problem solving, Mert is enthusiastic about contributing to the tech industry and never-ending learning experiences.</p>
+        <a href="https://www.linkedin.com/in/mert-nacakgedigi/" class="btn btn-outline-info">LinkedIn</a>
+      <a href="https://github.com/mertnacakgedigi" class="btn btn-outline-info">GitHub</a>
       </div>
     </div>
   </div>
@@ -36,12 +41,14 @@
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="https://picsum.photos/200/300" class="card-img" alt="...">
+      <img class="card-img-top my-3" src="{% static "images/liz.png" %}" alt="Liz's Profile">
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title">Elizabeth Patton</h5>
+        <p class="card-text">An avid traveler herself, Elizabeth, wants to shape the digital world people interact with to help them explore this beautiful planet.</p>
+        <a href="https://www.linkedin.com/in/elizabeth-a-patton/" class="btn btn-outline-info">LinkedIn</a>
+        <a href="https://github.com/eapatton" class="btn btn-outline-info">GitHub</a>
       </div>
     </div>
   </div>

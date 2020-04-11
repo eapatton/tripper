@@ -10,9 +10,6 @@ class City(models.Model):
     def __str__(self):
         return self.name
     
-
-
-
 class Thing(models.Model):
     address = models.TextField(max_length= 250)
     description = models.TextField(max_length= 250)

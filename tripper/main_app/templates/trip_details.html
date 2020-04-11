@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content%}
+
+<h1 class="mt-5 mb-5" style="text-align:center;"> Ready for your trip? </h1>	
+
+	<div class="card">
+	 <!--  <a href="/cryptids/{{cryptid.id}}">  add this back in if we make a detail page-->
+
+		<div class="card-content" style="text-align:center;">
+	    	<span class="card-title">{{ city.name }}</span>
+	    	<p class="mx-3 mt-4"> Description: {{ trip.description }}</p>
+	    	<p>Date: {{trip.date}}</p>
+	    	<p>Budget: {{ trip.budget}}</p>
+	    </div>
+	</div>
+
+	<div class="row mt-5">
+	{% for thing in things %}
+		<div class="col s6">
+			<div class="card flex-grow" style="margin-top: 5px">
+			  <div style="text-align:center;" class="card-content">
+			    <p class="mx-3 mt-4"> {{thing.description}}</p>
+			    <p class="mx-3"> Address: {{thing.address}}</p>
+			    <p class="mx-3"> Hours: {{thing.hours}}</p>
+			    <p class="mx-3"> Cost: ${{thing.cost}}</p>
+			    <a href="#" class="card-link btn btn-info mb-3">Remove Event</a>
+			  </div>
+			</div>
+		</div>
+	{% endfor%}
+	</div>
+
+{% endblock %}

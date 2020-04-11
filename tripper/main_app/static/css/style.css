@@ -1,20 +1,25 @@
-carousel {
+.carousel-inner {
   position: relative;
+  opacity: 0.9;
 }
 
 .card {
-    background-color: rgba(172, 235, 207, 0.699);
+    background-color: rgba(172, 235, 207, 0.822);
+    opacity: 0.9;
+    border-radius: 8px;
 }
 
-footer {
-  padding-top: 0;
-}
 
+.page-footer {
+    color: #fff;
+    position: fixed; bottom: 0;
+    padding: 20px;
+}
 @import "https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap";
-
 
 body {
     font-family: 'Playfair Display', serif;
+    color: #fff;
     background-color: rgb(172, 208, 224);
 }
 
@@ -23,7 +28,7 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+    color: #fff;
 }
 
 a, a:hover, a:focus {

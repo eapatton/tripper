@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from .models import City, Thing, Trip
-
 # Create your views here.
 # Add the following import
 
@@ -20,7 +19,26 @@ def about(request):
 
 
 
-  ##----------------- MELODY AREA ------------------ (line 23)###
+from . forms import TripForm
+##----------------- MELODY AREA ------------------ (line 23)###
+def trips(request):
+	trips = Trip.objects.all()
+
+	if request.method == 'POST':
+		form = TripForm(request.POST)
+		if form.is_valid():
+			new_Trip = form.save()
+			return redirect('trips')
+	else:
+		form = TripForm
+	context = {'form': form, 'trips': trips}
+	return render(request, 'trips.html', context)
+
+def trip_details(request, trip_id):
+	trip = Trip.objects.get(id=trip_id)
+	things = Trip.objects.get(id=trip_id).events.all()
+	# city = Trip.objects. 'city':city
+	return render(request, 'trip_details.html', {'trip': trip, 'things': things })
 
 
 
@@ -51,24 +69,7 @@ def about(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  ##------------------------ MERT AREA -------------------- (LINE 71)##
+##------------------------ MERT AREA -------------------- (LINE 71)##
 
 
 

@@ -25,4 +25,4 @@ class Trip(models.Model):
     description = models.TextField(max_length= 250)
     budget = models.IntegerField()
     city = models.ManyToManyField(City)
-    things_to_do = models.ManyToManyField(Thing)
+    events = models.ManyToManyField(Thing)

@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(max_length=250)),
                 ('budget', models.IntegerField()),
                 ('city', models.ManyToManyField(to='main_app.City')),
-                ('things_to_do', models.ManyToManyField(to='main_app.Thing')),
+                ('events', models.ManyToManyField(to='main_app.Thing')),
             ],
         ),
     ]

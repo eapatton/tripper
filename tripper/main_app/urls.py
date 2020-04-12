@@ -16,7 +16,7 @@ urlpatterns = [
     #Melody
     path('trips/', views.trips, name='trips'),
     path('trips/<int:trip_id>/', views.trip_details, name='tripdetails'),
-
+    path('trips/<int:trip_id>/delete', views.trip_delete, name='trip_delete'),
 
 
 

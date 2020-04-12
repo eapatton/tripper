@@ -40,6 +40,10 @@ def trip_details(request, trip_id):
 	# city = Trip.objects. 'city':city
 	return render(request, 'trip_details.html', {'trip': trip, 'things': things })
 
+def trip_delete(request, trip_id):
+	Trip.objects.get(id=trip_id).trip_delete
+	return redirect('trips')
+
 
 
 

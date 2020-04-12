@@ -5,16 +5,15 @@
 
 	{% for trip in trips %}
 	<div class="card mt-3">
-	 <!--  <a href="/cryptids/{{cryptid.id}}">  add this back in if we make a detail page-->
 
 	  <div class="card-content mt-4" style="text-align:center;">
 	    <h3> Trip {{ trip.pk }}</h3>
 	    <p>Description: {{ trip.description }}</p>
 	    <p>Date: {{trip.date}}</p>
 	    <p>Budget: {{ trip.budget}}</p>
-	    <a href="#" class="card-link btn btn-info mb-3">More Info</a>
-	    <a href="#" class="card-link btn btn-info mb-3">Edit Trip</a>
-	    <a href="#" class="card-link btn btn-info mb-3">Delete link</a>
+	    <a href="/trips/{{trip.pk}}" class="card-link btn btn-info mb-3">More Info</a>
+	    <a href="{% url '' %}" class="card-link btn btn-info mb-3">Edit Trip</a>
+	    <a href="{% url 'trip_delete' %}" class="card-link btn btn-info mb-3">Delete link</a>
 	  </div>
 	</div>
 	{% endfor %}

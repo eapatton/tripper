@@ -41,7 +41,7 @@ def trip_details(request, trip_id):
 	return render(request, 'trip_details.html', {'trip': trip, 'things': things })
 
 def trip_delete(request, trip_id):
-	Trip.objects.get(id=trip_id).trip_delete
+	Trip.objects.get(id=trip_id).delete()
 	return redirect('trips')
 
 

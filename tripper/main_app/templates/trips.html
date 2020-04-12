@@ -12,8 +12,8 @@
 	    <p>Date: {{trip.date}}</p>
 	    <p>Budget: {{ trip.budget}}</p>
 	    <a href="/trips/{{trip.pk}}" class="card-link btn btn-info mb-3">More Info</a>
-	    <a href="{% url '' %}" class="card-link btn btn-info mb-3">Edit Trip</a>
-	    <a href="{% url 'trip_delete' %}" class="card-link btn btn-info mb-3">Delete link</a>
+	    <a href="#" class="card-link btn btn-info mb-3">Edit Trip</a>
+	    <a href="/trips/{{trip.pk}}/delete" class="card-link btn btn-info mb-3">Delete Trip</a>
 	  </div>
 	</div>
 	{% endfor %}

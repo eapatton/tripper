@@ -8,6 +8,9 @@
 	    	<p class="mx-3 mt-4"> Description: {{ trip.description }}</p>
 	    	<p>Date: {{trip.date}}</p>
 	    	<p>Budget: {{ trip.budget}}</p>
+	    	<a href="/trips/{{trip.pk}}/update" class="card-link btn btn-info mb-3">Update Your Trip</a>
+	    	<a href="/trips/{{trip.pk}}/delete" class="card-link btn btn-info mb-3">Edit Your Trip</a>
+	    	<a href="/trips" class="card-link btn btn-info mb-3">See All Your Trips</a>
 	    </div>
 	</div>
 

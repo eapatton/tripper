@@ -37,6 +37,7 @@ def trips(request):
 def trip_details(request, trip_id):
 	trip = Trip.objects.get(id=trip_id)
 	things = Trip.objects.get(id=trip_id).events.all()
+	trip_form = TripForm()
 	# city = Trip.objects. 'city':city
 	return render(request, 'trip_details.html', {'trip': trip, 'things': things })
 
@@ -44,11 +45,17 @@ def trip_delete(request, trip_id):
 	Trip.objects.get(id=trip_id).delete()
 	return redirect('trips')
 
+def trip_update(request, trip_id):
+	trip = Trip.objects.get(id=trip_id)
 
-
-
-
-
+	if request.method == 'POST':
+		form = TripForm(request.POST, instance=trip)
+		if form.is_valid():
+			new_Trip = form.save()
+			return redirect('trip_details', trip.id)
+	else:
+		form = TripForm(instance=trip)
+	return render(request, 'trip_update.html', {'form': form})
 
 
 

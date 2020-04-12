@@ -31,10 +31,14 @@
             <p> Address: {{thing.address}}</p>
             <p> Hours: {{thing.hours}}</p>
             <p> Cost: ${{thing.cost}}</p>
-            <form action="" method="post">
+             {% for trip in trips %}
+         <div style="display:inline-block;" class="card-action">
+            <form action="{% url 'assoc_thing' trip.id thing.id city.id %}" method="post">
               {% csrf_token %}
-              <button type="button" class="btn btn-info" style="margin-bottom:5px;">Add Your Trip</button>
+              <button   type="submit" class="btn btn-info">Add Your Trip {{trip.id}}</button>
             </form>
+          </div>
+            {% endfor %}
           </div>
              
         </div>
@@ -42,8 +46,11 @@
   </div>
   
   <div class="col s6">
-    <h3 style="text-align:center;">Your Trip</h3>
-    {% for thing in trips %}
+    
+    {% for trip in trips %}
+    <h3 style="text-align:center;"> Trip {{trip.id}}</h3>
+      {% for thing in trip.events.all %} 
+       {% comment %} {% if thing.city.id===city.id%} {% endcomment %}
         <div class="card" style="margin-top: 5px">
           <div style="padding:0; text-align:center;" class="card-content">
             <p> {{thing.description}}</p>
@@ -52,8 +59,10 @@
             <p> Cost: ${{thing.cost}}</p>
            
           </div>
-             
+               {% comment %} {% endif %} {% endcomment %}
         </div>
+      
+      {% endfor %}
     {% endfor %}
 
     

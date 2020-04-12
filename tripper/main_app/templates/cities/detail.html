@@ -32,10 +32,12 @@
             <p> Hours: {{thing.hours}}</p>
             <p> Cost: ${{thing.cost}}</p>
              {% for trip in trips %}
-            <form style="display:inline-block" action="{% url 'assoc_thing' trip.id thing.id %}" method="post">
+         <div style="display:inline-block;" class="card-action">
+            <form action="{% url 'assoc_thing' trip.id thing.id %}" method="post">
               {% csrf_token %}
-              <button type="button" class="btn btn-info" style="margin-bottom:5px;">Add Your Trip {{trip.id}}</button>
+              <button   type="submit" class="btn btn-info">Add Your Trip {{trip.id}}</button>
             </form>
+          </div>
             {% endfor %}
           </div>
              

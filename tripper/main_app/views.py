@@ -84,10 +84,10 @@ def city_detail(request,city_id):
   
   return render(request,'cities/detail.html',{"city" : city, "trips" : trips})
 
-def assoc_thing(request,trip_id,thing_id):
+def assoc_thing(request,trip_id,thing_id,city_id):
 
   Trip.objects.get(id=trip_id).events.add(thing_id)
-  return redirect('destination')
+  return redirect('detail',city_id=city_id)
   
 
 

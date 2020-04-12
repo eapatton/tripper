@@ -25,7 +25,7 @@ urlpatterns = [
     # Mert"s Path
     path('cities/', views.city_index, name='destination'),
     path('cities/<int:city_id>/', views.city_detail, name="detail"),
-    path('trips/<int:trip_id>/assoc_trip/<int:thing_id>/', views.assoc_thing, name='assoc_thing'),
+    path('trips/<int:trip_id>/assoc_trip/<int:thing_id>/cities/<int:city_id>/', views.assoc_thing, name='assoc_thing'),
 
 
 

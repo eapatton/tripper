@@ -33,7 +33,7 @@
             <p> Cost: ${{thing.cost}}</p>
              {% for trip in trips %}
          <div style="display:inline-block;" class="card-action">
-            <form action="{% url 'assoc_thing' trip.id thing.id %}" method="post">
+            <form action="{% url 'assoc_thing' trip.id thing.id city.id %}" method="post">
               {% csrf_token %}
               <button   type="submit" class="btn btn-info">Add Your Trip {{trip.id}}</button>
             </form>

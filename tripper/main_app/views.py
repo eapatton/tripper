@@ -1,5 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import City, Thing, Trip
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 # Add the following import
 
@@ -15,19 +19,19 @@ def about(request):
 
 
 
-
-
-
-
 from . forms import TripForm
 ##----------------- MELODY AREA ------------------ (line 23)###
+@login_required
 def trips(request):
-	trips = Trip.objects.all()
+	trips = Trip.objects.filter(user=request.user)
 
 	if request.method == 'POST':
 		form = TripForm(request.POST)
 		if form.is_valid():
-			new_Trip = form.save()
+			new_Trip = form.save(commit=False)
+			new_Trip.user = request.user
+			new_Trip.save()
+
 			return redirect('trips')
 	else:
 		form = TripForm
@@ -41,9 +45,11 @@ def trip_details(request, trip_id):
 	# city = Trip.objects. 'city':city
 	return render(request, 'trip_details.html', {'trip': trip, 'things': things })
 
+
 def trip_delete(request, trip_id):
 	Trip.objects.get(id=trip_id).delete()
 	return redirect('trips')
+
 
 def trip_update(request, trip_id):
 	trip = Trip.objects.get(id=trip_id)
@@ -56,6 +62,7 @@ def trip_update(request, trip_id):
 	else:
 		form = TripForm(instance=trip)
 	return render(request, 'trip_update.html', {'form': form})
+
 
 def remove_event(request, trip_id, event_id):	
 	Trip.objects.get(id=trip_id).events.remove(event_id)
@@ -74,12 +81,16 @@ def city_index(request):
   city = City.objects.all()
   return render(request, 'cities/index.html' , {'cities': city})
 
+
 def city_detail(request,city_id):
   city = City.objects.get(id=city_id)
-  trips = Trip.objects.all()
+
+#   trips = Trip.objects.filter(user=request.user)
+#   trips = Trip.objects.all()
 
   
   return render(request,'cities/detail.html',{"city" : city, "trips" : trips})
+
 
 def assoc_thing(request,trip_id,thing_id,city_id):
 
@@ -112,3 +123,22 @@ def assoc_thing(request,trip_id,thing_id,city_id):
 
 
   ## -------------------------- LIZ AREA ------------------ (LINE 111)##
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # This is how to create a 'user' form object
+    # that includes the data from the browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # This will add the user to the database
+      user = form.save()
+      # This is how we log a user in via code
+      login(request, user)
+      return redirect('index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'registration/signup.html', context)

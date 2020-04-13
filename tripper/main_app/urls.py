@@ -6,8 +6,8 @@ urlpatterns = [
     # Liz
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
-
-
+    path('accounts/signup', views.signup, name='signup'),
+  
 
 
 
@@ -18,7 +18,7 @@ urlpatterns = [
     path('trips/<int:trip_id>/', views.trip_details, name='trip_details'),
     path('trips/<int:trip_id>/delete', views.trip_delete, name='trip_delete'),
     path('trips/<int:trip_id>/update', views.trip_update, name='trip_update'),
-
+    path('trips/<int:trip_id>/remove/<int:event_id>/', views.remove_event, name='remove_event'),
 
 
 

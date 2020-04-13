@@ -1,6 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<style>
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+
+.dropdown-content{
+ display:none;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display:inline-block;
+}
+.dropdown:hover .tripadder {
+  display:none;
+}
+
+.card-action{
+  display:inline-block
+}
+
+
+
+
+
+</style>
+
 <h1 ></h1>
 
 <div class="row">
@@ -25,23 +56,31 @@
     <h3 style="text-align:center;">{{ city.name }}'s Things to Do</h3> 
 
       {% for thing in city.thing_set.all %}
-        <div class="card flex-grow-1" style="margin-top: 5px">
-          <div style="padding:0; text-align:center;" class="card-content">
-            <p> {{thing.description}}</p>
-            <p> Address: {{thing.address}}</p>
-            <p> Hours: {{thing.hours}}</p>
-            <p> Cost: ${{thing.cost}}</p>
-             {% for trip in trips %}
-         <div style="display:inline-block;" class="card-action">
-            <form action="{% url 'assoc_thing' trip.id thing.id city.id %}" method="post">
-              {% csrf_token %}
-              <button   type="submit" class="btn btn-info">Add Your Trip {{trip.id}}</button>
-            </form>
-          </div>
+    <div class="card flex-grow-1" style="margin-top: 5px">
+      <div style="padding:0; text-align:center;" class="card-content">
+        <p> {{thing.description}}</p>
+        <p> Address: {{thing.address}}</p>
+        <p> Hours: {{thing.hours}}</p>
+        <p> Cost: ${{thing.cost}}</p>
+        
+        <div class="dropdown">
+            <button class="tripadder btn btn-info"> Add Your Trip</button>
+            <div class="dropdown-content">
+              {% for trip in trips %}
+
+                <div class="card-action">
+                  <form action="{% url 'assoc_thing' trip.id thing.id city.id %}" method="post">
+                    {% csrf_token %}
+                    <button   type="submit" class="btn btn-info">Add Your Trip {{trip.id}}</button>
+                  </form>
+                </div>
             {% endfor %}
-          </div>
-             
+            </div>
         </div>
+      </div>
+          
+    </div>
+    
      {% endfor %}
   </div>
   

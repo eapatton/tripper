@@ -38,9 +38,10 @@
                      <li>
                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Trips</a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
-                            <li><a href="#">Trip 1</a></li>
-                            <li><a href="#">Trip 2</a></li>
-                            <li><a href="#">Trip 3</a></li>
+                            <li><a href="{% url 'trips' %}">Plan a Trip</a></li>
+                            {% for trip in user.trip_set.all %}
+                            <li><a href="{% url 'trip_details' trip.id %}">Trip {{trip.id}} </a></li>
+                            {% endfor %}
                         </ul> 
                     </li>
                     <li>

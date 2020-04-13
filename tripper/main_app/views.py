@@ -26,15 +26,15 @@ def trips(request):
 	trips = Trip.objects.filter(user=request.user)
 
 	if request.method == 'POST':
-			form = TripForm(request.POST)
-			if form.is_valid():
-				new_Trip = form.save(commit=False)
-				new_Trip.user = request.user
-				new_Trip.save()
+		form = TripForm(request.POST)
+		if form.is_valid():
+			new_Trip = form.save(commit=False)
+			new_Trip.user = request.user
+			new_Trip.save()
 
-				return redirect('trips')
+			return redirect('trips')
 	else:
-			form = TripForm
+		form = TripForm
 	context = {'form': form, 'trips': trips}
 	return render(request, 'trips.html', context)
 
@@ -43,7 +43,6 @@ def trip_details(request, trip_id):
 	things = Trip.objects.get(id=trip_id).events.all()
 	city = City.objects.filter(trip=trip_id).first
 	trip_form = TripForm()
-	# city = Trip.objects. 'city':city
 	return render(request, 'trip_details.html', {'trip': trip, 'things': things, 'city': city })
 
 

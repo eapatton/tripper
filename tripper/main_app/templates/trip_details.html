@@ -4,10 +4,9 @@
 <h1 class="mt-5 mb-5" style="text-align:center;"> Ready for your trip? </h1>
 	<div class="card">
 		<div class="card-content" style="text-align:center;">
-	    	<h2 >Your trip to {{ city }}</h2>
-	    	<p class="mx-3 mt-4">Your trip on: {{trip.date}}</p>
-	    	<p class="mx-3 mt-4"> Description: {{ trip.description }}</p>
-
+	    	<h2 class="mx-3 mt-4">Your trip to {{city}}</h2>
+	    	<p class="mx-3 mt-3">Your trip on: {{trip.date}}</p>
+	    	<p class="mx-3 mt-3"> Description: {{ trip.description }}</p>
 	    	<p>Budget: {{ trip.budget}}</p>
 	    	<a href="/trips/{{trip.pk}}/update" class="card-link btn btn-info mb-3">Update Your Trip</a>
 	    	<a href="/trips/{{trip.pk}}/delete" class="card-link btn btn-info mb-3">Edit Your Trip</a>
@@ -32,7 +31,7 @@
 	{% if not things %}
 	<div class="col s6">
 		<div class="card">
-			<div class="card-content" style="text-align:center;">
+			<div class="card-content mx-3 mt-4" style="text-align:center;">
 				<p>You don't have any planned activities! Yet.</p>
 				<a href="/cities/{{city.id}}" class="card-link btn btn-info mb-3">Check out the city?</a>
 			</div>

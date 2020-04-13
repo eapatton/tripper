@@ -6,6 +6,6 @@
     "description": "I'm going to Istanbul for fun with my family.", 
     "budget": 1000, 
     "city": [1], 
-    "things_to_do": [1, 2]
+    "events": [1, 2]
   }
 }]

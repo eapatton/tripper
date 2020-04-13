@@ -26,15 +26,15 @@ def trips(request):
 	trips = Trip.objects.filter(user=request.user)
 
 	if request.method == 'POST':
-		form = TripForm(request.POST)
-		if form.is_valid():
-			new_Trip = form.save(commit=False)
-			new_Trip.user = request.user
-			new_Trip.save()
+			form = TripForm(request.POST)
+			if form.is_valid():
+				new_Trip = form.save(commit=False)
+				new_Trip.user = request.user
+				new_Trip.save()
 
-			return redirect('trips')
+				return redirect('trips')
 	else:
-		form = TripForm
+			form = TripForm
 	context = {'form': form, 'trips': trips}
 	return render(request, 'trips.html', context)
 
@@ -135,7 +135,7 @@ def signup(request):
       user = form.save()
       # This is how we log a user in via code
       login(request, user)
-      return redirect('index')
+      return redirect('trips')
     else:
       error_message = 'Invalid sign up - try again'
   # A bad POST or a GET request, so render signup.html with an empty form

@@ -41,9 +41,10 @@ def trips(request):
 def trip_details(request, trip_id):
 	trip = Trip.objects.get(id=trip_id)
 	things = Trip.objects.get(id=trip_id).events.all()
+	city = City.objects.filter(trip=trip_id).first
 	trip_form = TripForm()
 	# city = Trip.objects. 'city':city
-	return render(request, 'trip_details.html', {'trip': trip, 'things': things })
+	return render(request, 'trip_details.html', {'trip': trip, 'things': things, 'city': city })
 
 
 def trip_delete(request, trip_id):
@@ -135,7 +136,7 @@ def signup(request):
       user = form.save()
       # This is how we log a user in via code
       login(request, user)
-      return redirect('index')
+      return redirect('trips')
     else:
       error_message = 'Invalid sign up - try again'
   # A bad POST or a GET request, so render signup.html with an empty form

@@ -41,4 +41,49 @@
     "hours": "Boats depart for Alcatraz every half an hour starting at 8:30 and running until 4:00.", 
     "city": 3
   }
-}]
+},
+{
+  "model": "main_app.thing",
+  "pk": 5,
+  "fields": {
+    "address": "Museumsinsel",
+    "description": "Berlin’s Museumsinsel is home to the legendary bust of Nefertiti and the Pergamon Altar – and five museums with works from Ancient Egypt, Byzantium and Berlin.", 
+    "cost": 18, 
+    "hours": "Tue/Wed/Fri/Sat/Sun 10am - 6pm , Thursday 10am - 8pm", 
+    "city": 2
+  }
+},
+{
+  "model": "main_app.thing",
+  "pk": 6,
+  "fields": {
+    "address": "225 Bush St #5, San Francisco, CA 94104",
+    "description": "Come to General Assembly, and marvel at a truly astounding collection of nerds.", 
+    "cost": 0, 
+    "hours": "Weekdays 9-5 and whenever you have the time to focus.", 
+    "city": 3
+  }
+},
+{
+  "model": "main_app.thing",
+  "pk": 7,
+  "fields": {
+    "address": "Athens 105 58, Greece",
+    "description": "The Acropolis of Athens is an ancient citadel located on a rocky outcrop above the city of Athens and contains the remains of several ancient buildings of great architectural and historic significance, the most famous being the Parthenon.",
+    "cost": 0, 
+    "hours": "The Acropolis can always be viewed.", 
+    "city": 4
+  }
+},
+{
+  "model": "main_app.thing",
+  "pk": 8,
+  "fields": {
+    "address": "Piazza San Marco, 30100 Venezia VE, Italy",
+    "description": "Piazza San Marco often known in English as St Mark's Square, is the principal public square of Venice, Italy.",
+    "cost": 0, 
+    "hours": "The Piazza is always open unless there are cases of flooding.", 
+    "city": 6
+  }
+}
+]

@@ -18,6 +18,7 @@ class Thing(models.Model):
     hours = models.CharField(max_length= 100)
     city = models.ForeignKey(City, null=True, on_delete=models.SET_NULL)
     
+    
 class Trip(models.Model):
     date = models.DateField()
     description = models.TextField(max_length= 250)

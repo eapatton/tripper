@@ -57,24 +57,10 @@ def trip_update(request, trip_id):
 		form = TripForm(instance=trip)
 	return render(request, 'trip_update.html', {'form': form})
 
+def remove_event(request, trip_id, event_id):	
+	Trip.objects.get(id=trip_id).events.remove(event_id)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	return redirect('trip_details', trip.id)
 
 
 

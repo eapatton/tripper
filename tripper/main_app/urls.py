@@ -15,9 +15,9 @@ urlpatterns = [
 
     #Melody
     path('trips/', views.trips, name='trips'),
-    path('trips/<int:trip_id>/', views.trip_details, name='tripdetails'),
-
-
+    path('trips/<int:trip_id>/', views.trip_details, name='trip_details'),
+    path('trips/<int:trip_id>/delete', views.trip_delete, name='trip_delete'),
+    path('trips/<int:trip_id>/update', views.trip_update, name='trip_update'),
 
 
 
@@ -25,7 +25,7 @@ urlpatterns = [
     # Mert"s Path
     path('cities/', views.city_index, name='destination'),
     path('cities/<int:city_id>/', views.city_detail, name="detail"),
-
+    path('trips/<int:trip_id>/assoc_trip/<int:thing_id>/cities/<int:city_id>/', views.assoc_thing, name='assoc_thing'),
 
 
 

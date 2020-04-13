@@ -85,11 +85,18 @@ def city_index(request):
 def city_detail(request,city_id):
   city = City.objects.get(id=city_id)
 
-#   trips = Trip.objects.filter(user=request.user)
-#   trips = Trip.objects.all()
+  trips = Trip.objects.filter(user=request.user)
+
+
+  counter = ""
+	
+  for i in range(1,trips.count()+1):
+	  counter = counter + str(i)
+
+
 
   
-  return render(request,'cities/detail.html',{"city" : city, "trips" : trips})
+  return render(request,'cities/detail.html',{"city" : city, "trips" : trips, "counter":counter})
 
 
 def assoc_thing(request,trip_id,thing_id,city_id):
@@ -97,6 +104,12 @@ def assoc_thing(request,trip_id,thing_id,city_id):
   Trip.objects.get(id=trip_id).events.add(thing_id)
   return redirect('detail',city_id=city_id)
   
+def delete_thing(request,trip_id,thing_id,city_id):
+
+  Trip.objects.get(id=trip_id).events.remove(thing_id)
+  return redirect('detail',city_id=city_id)
+  
+
 
 
 
@@ -135,7 +148,7 @@ def signup(request):
       user = form.save()
       # This is how we log a user in via code
       login(request, user)
-      return redirect('index')
+      return redirect('trips')
     else:
       error_message = 'Invalid sign up - try again'
   # A bad POST or a GET request, so render signup.html with an empty form

@@ -31,7 +31,7 @@ We are planning to create a website for users to plan a trip. We hope to impleme
 
 
 ## Wireframe
-
+https://ga-students.slack.com/files/UTA9DGV2A/F011SNRRW92/20200409_140716.jpg 
 
 ## Data Models
 - User

@@ -6,7 +6,8 @@
     "description": "Sultan Ahmed Mosque, also known as the Blue Mosque, is a historic mosque located in Istanbul, Turkey. ", 
     "cost": 0, 
     "hours": "Closes for prayers 5 times a day; open all other times.", 
-    "city": 1
+    "city": 1,
+    "image":"https://cdn.kastatic.org/ka-perseus-images/2bd6afdf5dae299fa7b8dcac625f42590be25eda.jpg"
   }
 },
 {
@@ -17,7 +18,8 @@
     "description": "The Hagia Sophia, which was the largest building in the world when it was built, is considered the epitome of Byzantine architecture.", 
     "cost": 11, 
     "hours": "9:00 to 7:00 during the summer, 9:00 to 6:00 during the winter.", 
-    "city": 1
+    "city": 1,
+    "image": "https://www.hagiasophia.com/upload/1553256075_262-900x604.jpg"
   }
 },
 {
@@ -28,7 +30,8 @@
     "description": "The Brandenburg Gate was often a site for major historical events and is today considered a symbol of the tumultuous history of Germany.", 
     "cost": 0, 
     "hours": "Open all day.", 
-    "city": 2
+    "city": 2,
+    "image":"https://upload.wikimedia.org/wikipedia/commons/2/2b/Berlin_Brandenburger_Tor_Abend.jpg"
   }
 },
 {
@@ -39,6 +42,7 @@
     "description": "The notorious island of Alcatraz served as a prison for many high profile prisoners for years.", 
     "cost": 40, 
     "hours": "Boats depart for Alcatraz every half an hour starting at 8:30 and running until 4:00.", 
-    "city": 3
+    "city": 3,
+    "image":"https://media.tacdn.com/media/attractions-splice-spp-674x446/07/ab/77/e5.jpg"
   }
 }]

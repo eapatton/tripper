@@ -66,7 +66,11 @@ We are planning to create a website for users to plan a trip. We hope to impleme
 #### Sprint 3
 ##### April 11-12
 - Set up basic CRUD functionality for the Trip, be able to add, update and delete
-
+#### Sprint 4
+##### April 13-14
+- Set up authentication and authorization
+- Add more seed data and styling
+- Deploy to Heroku
 
 ## References
 - For color schemes

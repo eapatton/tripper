@@ -24,7 +24,9 @@ from . forms import TripForm
 @login_required
 def trips(request):
 	trips = Trip.objects.filter(user=request.user)
-
+	counter = ""
+	for i in range(1,trips.count()+1):
+		counter = counter + str(i)
 	if request.method == 'POST':
 		form = TripForm(request.POST)
 		if form.is_valid():
@@ -35,7 +37,7 @@ def trips(request):
 			return redirect('trips')
 	else:
 		form = TripForm
-	context = {'form': form, 'trips': trips}
+	context = {'form': form, 'trips': trips, 'counter': counter}
 	return render(request, 'trips.html', context)
 
 def trip_details(request, trip_id):

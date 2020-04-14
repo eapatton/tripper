@@ -8,7 +8,6 @@ h1 {
 }
 
 .card {
-    color: #593A7E;
     background-color: rgba(172, 235, 207, 0.822);
     opacity: 0.9;
     border-radius: 8px;
@@ -23,17 +22,17 @@ h1 {
 @import "https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap";
 
 body {
+    color: #fff;
     font-family: 'Playfair Display', serif;
-    color: #593A7E;
     background-color: rgb(172, 208, 224);
 }
 
 p {
+    color: #fff;
     font-family: 'Playfair Display', serif;
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #593A7E;
 }
 
 a, a:hover, a:focus {

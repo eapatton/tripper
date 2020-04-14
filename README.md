@@ -32,6 +32,7 @@ We are planning to create a website for users to plan a trip. We hope to impleme
 
 ## Wireframe
 
+<img src="/main_app/static/images/wireframe.jpg" width="400" height="600">
 
 ## Data Models
 - User

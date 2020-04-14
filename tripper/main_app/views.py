@@ -24,18 +24,20 @@ from . forms import TripForm
 @login_required
 def trips(request):
 	trips = Trip.objects.filter(user=request.user)
-
+	counter = ""
+	for i in range(1,trips.count()+1):
+		counter = counter + str(i)
 	if request.method == 'POST':
-			form = TripForm(request.POST)
-			if form.is_valid():
-				new_Trip = form.save(commit=False)
-				new_Trip.user = request.user
-				new_Trip.save()
+		form = TripForm(request.POST)
+		if form.is_valid():
+			new_Trip = form.save(commit=False)
+			new_Trip.user = request.user
+			new_Trip.save()
 
-				return redirect('trips')
+			return redirect('trips')
 	else:
-			form = TripForm
-	context = {'form': form, 'trips': trips}
+		form = TripForm
+	context = {'form': form, 'trips': trips, 'counter': counter}
 	return render(request, 'trips.html', context)
 
 def trip_details(request, trip_id):
@@ -43,7 +45,6 @@ def trip_details(request, trip_id):
 	things = Trip.objects.get(id=trip_id).events.all()
 	city = City.objects.filter(trip=trip_id).first
 	trip_form = TripForm()
-	# city = Trip.objects. 'city':city
 	return render(request, 'trip_details.html', {'trip': trip, 'things': things, 'city': city })
 
 

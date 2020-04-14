@@ -15,6 +15,7 @@ class Thing(models.Model):
     address = models.TextField(max_length= 250)
     description = models.TextField(max_length= 250)
     cost = models.IntegerField()
+    image = models.URLField(default="https://globalcenters.columbia.edu/sites/default/files/styles/cu_crop/public/content/istanbul/visiting%20city/istanbul%20002.jpg?h=eba642ff&itok=rOu6u0xq")
     hours = models.CharField(max_length= 100)
     city = models.ForeignKey(City, null=True, on_delete=models.SET_NULL)
     

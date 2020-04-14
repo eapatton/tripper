@@ -22,7 +22,7 @@
   display:none;
 }
 
-.card-action{
+.assoc{
   display:inline-block
 }
 
@@ -68,10 +68,10 @@
             <div class="dropdown-content">
               {% for trip in trips %}
 
-                <div class="card-action">
+                <div class="card-action assoc">
                   <form action="{% url 'assoc_thing' trip.id thing.id city.id %}" method="post">
                     {% csrf_token %}
-                    <button   type="submit" class="btn btn-info">Add Your Trip {{trip.id}}</button>
+                    <button   type="submit" class="btn btn-info">Add Your Trip {{forloop.counter}}</button>
                   </form>
                 </div>
             {% endfor %}
@@ -85,24 +85,42 @@
   </div>
   
   <div class="col s6">
+
+  
+
     
-    {% for trip in trips %}
-    <h3 style="text-align:center;"> Trip {{trip.id}}</h3>
-      {% for thing in trip.events.all %} 
-       {% comment %} {% if thing.city.id===city.id%} {% endcomment %}
+   
+ {% for trip in trips %}
+
+   
+
+    <h3  style="text-align:center;"> Trip {{forloop.counter}}</h3>
+  
+ 
+     {% for thing in trip.events.all %} 
+    
+     
+      
+       
         <div class="card" style="margin-top: 5px">
           <div style="padding:0; text-align:center;" class="card-content">
             <p> {{thing.description}}</p>
             <p> Address: {{thing.address}}</p>
             <p> Hours: {{thing.hours}}</p>
             <p> Cost: ${{thing.cost}}</p>
-           
+             <div class="card-action">
+                  <form action="{% url 'delete_thing' trip.id thing.id city.id %}" method="post">
+                    {% csrf_token %}
+                    <button  type="submit" class="btn btn-danger">Delete</button>
+                  </form>
+            </div>
+            
           </div>
-               {% comment %} {% endif %} {% endcomment %}
         </div>
-      
-      {% endfor %}
+     
+     
     {% endfor %}
+     {% endfor %}
 
     
   </div>

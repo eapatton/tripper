@@ -6,9 +6,14 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  margin-bottom: 10px
 }
 
-
+.thing {
+  font-size:20px;
+  font-weight: bold;
+  
+}
 
 .dropdown-content{
  display:none;
@@ -22,10 +27,17 @@
   display:none;
 }
 
-.card-action{
+.assoc{
   display:inline-block
 }
 
+.card-content{
+  background-color: #45747A;
+}
+
+.card-action {
+  margin-bottom: 10px
+}
 
 
 
@@ -39,7 +51,7 @@
     <div class="card">
       <div style="text-align:center;" class="card-content">
         <img style="margin-top:8px;" src = "{{city.image}}" width="600" height="200">
-        <p style="margin-top:5px; color:black; font-size:25px;">Welcome to {{ city.name }}</p> 
+        <p style="margin-top:5px; font-size:25px;">Welcome to {{ city.name }}</p> 
         <p>{{ city.description }}</p>
         
        
@@ -52,12 +64,13 @@
 
 <hr>
 <div class="row">
-  <div class="col s6">
+  <div class="col s6 thing">
     <h3 style="text-align:center;">{{ city.name }}'s Things to Do</h3> 
 
       {% for thing in city.thing_set.all %}
-    <div class="card flex-grow-1" style="margin-top: 5px">
+    <div class="card flex-grow-1" style="margin-top: 5px;">
       <div style="padding:0; text-align:center;" class="card-content">
+      <img style="margin-top:8px;" src = "{{thing.image}}" width="500" height="200">
         <p> {{thing.description}}</p>
         <p> Address: {{thing.address}}</p>
         <p> Hours: {{thing.hours}}</p>
@@ -68,10 +81,10 @@
             <div class="dropdown-content">
               {% for trip in trips %}
 
-                <div class="card-action">
+                <div class="card-action assoc">
                   <form action="{% url 'assoc_thing' trip.id thing.id city.id %}" method="post">
                     {% csrf_token %}
-                    <button   type="submit" class="btn btn-info">Add Your Trip {{trip.id}}</button>
+                    <button   type="submit" class="btn btn-info">Add Your Trip {{forloop.counter}}</button>
                   </form>
                 </div>
             {% endfor %}
@@ -84,25 +97,44 @@
      {% endfor %}
   </div>
   
-  <div class="col s6">
+  <div class="col s6 thing">
+
+  
+
     
-    {% for trip in trips %}
-    <h3 style="text-align:center;"> Trip {{trip.id}}</h3>
-      {% for thing in trip.events.all %} 
-       {% comment %} {% if thing.city.id===city.id%} {% endcomment %}
+   
+ {% for trip in trips %}
+
+   
+
+    <h3  style="text-align:center;"> Trip {{forloop.counter}}</h3>
+  
+ 
+     {% for thing in trip.events.all %} 
+    
+     
+      
+       
         <div class="card" style="margin-top: 5px">
           <div style="padding:0; text-align:center;" class="card-content">
+          <img style="margin-top:8px;" src = "{{thing.image}}" width="500" height="200">
             <p> {{thing.description}}</p>
             <p> Address: {{thing.address}}</p>
             <p> Hours: {{thing.hours}}</p>
             <p> Cost: ${{thing.cost}}</p>
-           
+             <div class="card-action">
+                  <form action="{% url 'delete_thing' trip.id thing.id city.id %}" method="post">
+                    {% csrf_token %}
+                    <button  type="submit" class="btn btn-danger">Delete</button>
+                  </form>
+            </div>
+            
           </div>
-               {% comment %} {% endif %} {% endcomment %}
         </div>
-      
-      {% endfor %}
+     
+     
     {% endfor %}
+     {% endfor %}
 
     
   </div>
